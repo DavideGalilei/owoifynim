@@ -1,10 +1,11 @@
-import nre
-import sequtils
-import strutils
-import system
-import "owoifynim/private/interleaveArrays"
-import "owoifynim/private/presets"
-import "owoifynim/private/word"
+import std / [sequtils, strutils]
+import owoifynim / private / [interleaveArrays, presets, word]
+
+when defined(js):
+  import std / jsre except match
+  import owoifynim / private / jstemplates
+else:
+  import nre
 
 let WORD_REGEX = re"[^\s]+"
 let SPACE_REGEX = re"\s+"

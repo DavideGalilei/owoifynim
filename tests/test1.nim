@@ -5,10 +5,8 @@
 #
 # To run these tests, simply execute `nimble test`.
 
-import owoifynim
-import strutils
-import system
-import unittest
+import pkg / owoifynim
+import std / [strutils, unittest]
 
 let SOURCE = "Hello World! This is the string to owo! Kinda cute, isn't it?"
 let POKEMON_NAME_LIST_PATH = "assets/pokemons.txt"
