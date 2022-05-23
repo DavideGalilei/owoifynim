@@ -1,4 +1,6 @@
 # owoifynim
+> ### ⚠️ Note: this is a fork of https://github.com/deadshot465/owoifynim with JavaScript backend support and cleaner code. The same readme applies for this fork.
+
 Turning your worst nightmare into a Nim package.
 
 [![Build Status](https://nimble.directory/ci/badges/jester/nimdevel/status.svg)](https://nimble.directory/ci/badges/jester/nimdevel/output.html)
