@@ -5,28 +5,17 @@ type
     word*: string
     replacedWords*: seq[string]
 
-proc initWord*(word: string): Word =
-  ## Initializes a new ``Word`` object.
-  ## The basic unit of the owoify function.
-  Word(word: word, replacedWords: @[])
-
 when defined(js):
   import std / [jsre, options]
   import jstemplates
 else:
   import std / nre
 
-#[when defined(js):
-  proc searchValueContainsReplacedWords(word: Word, searchValue: RegExp, replaceValue: string): bool =
-    return word.replacedWords.any(proc (w: string): bool =
-      let matches = cstring(w).match(searchValue)
-      if matches.len() > 0:
-        let matchResult = matches[0]
-        return w.replace($matchResult, replaceValue) == replaceValue
-      else:
-        return false
-    )
-else:]#
+proc initWord*(word: string): Word =
+  ## Initializes a new ``Word`` object.
+  ## The basic unit of the owoify function.
+  Word(word: word, replacedWords: @[])
+
 proc searchValueContainsReplacedWords(word: Word, searchValue: Regex, replaceValue: string): bool =
   return word.replacedWords.any(proc (w: string): bool =
     let matches = w.findAll(searchValue, 0)
