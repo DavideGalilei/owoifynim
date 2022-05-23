@@ -4,7 +4,7 @@ when defined(js):
       
   func customMatch*(pattern: cstring; self: RegExp): seq[cstring] {.importjs: "#.match(#) || []".}
   
-  template re*(s: string): RegExp = newRegExp(cstring(s))
+  template re*(s: string): RegExp = newRegExp(cstring(s), r"ig")
 
   type
     Regex* = RegExp
